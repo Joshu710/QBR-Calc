@@ -10,6 +10,7 @@ class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        # Creates the Title, Text boxes, and result button
         self.setWindowTitle("Passer Rating Calculator")
         self.setGeometry(50, 50, 320, 500)
 
@@ -66,6 +67,8 @@ class MyApp(QMainWindow):
 
     @pyqtSlot()
     def on_click(self):
+
+        # Calculates passer rating with given stats
         completions = int(self.compBox.text())
         attempts = int(self.attBox.text())
         yards = int(self.ydBox.text())
@@ -88,6 +91,7 @@ class MyApp(QMainWindow):
 
         myData = "%.1f"%myData
         
+        # Displays passer rating and empties the text boxes
         QMessageBox.question(self, "Result", "Passer rating is: " + str(myData), QMessageBox.Ok, QMessageBox.Ok)
         self.compBox.setText("")
         self.attBox.setText("")
